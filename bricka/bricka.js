@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const heroVideo = document.querySelector('.bricka-hero-video');
+    if (heroVideo) {
+        const playWhenFullyBuffered = () => {
+            const duration = heroVideo.duration;
+            if (!Number.isFinite(duration) || duration <= 0) return;
+
+            const buffered = heroVideo.buffered;
+            const fullVideoBuffered = Array.from({ length: buffered.length }, (_, index) => index)
+                .some(index => buffered.start(index) <= 0.1 && buffered.end(index) >= duration - 0.1);
+            if (!fullVideoBuffered) return;
+
+            ['progress', 'loadedmetadata', 'loadeddata', 'canplaythrough', 'durationchange', 'suspend']
+                .forEach(eventName => heroVideo.removeEventListener(eventName, playWhenFullyBuffered));
+            heroVideo.play().catch(() => {});
+        };
+
+        ['progress', 'loadedmetadata', 'loadeddata', 'canplaythrough', 'durationchange', 'suspend']
+            .forEach(eventName => heroVideo.addEventListener(eventName, playWhenFullyBuffered));
+        playWhenFullyBuffered();
+    }
     const blocks = [...document.querySelectorAll('.bricka-process .method-block')];
     const links = [...document.querySelectorAll('.bricka-process .nav-step')];
     if (!blocks.length || !links.length) return;
