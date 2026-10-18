@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRICKA by AITCAP | Tu primera vivienda</title>
+    <meta name="description" content="BRICKA by AITCAP conecta a personas que buscan su primera vivienda con inversores interesados en aportar capital para hacerla posible.">
+    <link rel="icon" type="image/png" href="../assets/bricka-isotipo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="bricka.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <nav class="navbar" aria-label="Navegación principal">
+        <div class="container nav-inner">
+            <a href="bricka.html" class="logo-container" aria-label="BRICKA — Inicio">
+                <img src="../assets/bricka-isotipo.png" alt="" class="logo-iso">
+                <img src="../assets/bricka-logo.png" alt="BRICKA" class="logo-text">
+            </a>
+            <ul class="nav-links desktop-only">
+                <li><a href="../index.html">Inicio</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="services-toggle" id="desktopServicesToggle" aria-expanded="false" aria-controls="desktopServices">Servicios <span class="nav-chevron" aria-hidden="true"></span></button>
+                    <ul class="nav-submenu" id="desktopServices">
+                        <li><a href="../next/next.html">Next</a></li>
+                        <li><a href="../private/private.html">Private & Institutional</a></li>
+                        <li><a href="../corporate/corporate.html">Corporate</a></li>
+                        <li><a href="../tech/tech.html">Tech & Global</a></li>
+                    </ul>
+                </li>
+                <li><a href="../bricka/bricka.html" aria-current="page">BRICKA</a></li>
+            </ul>
+            <button class="hamburger" id="menuToggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-links">
+            <a href="../index.html" class="m-link">Inicio</a>
+            <div class="mobile-services">
+                <button type="button" class="m-link mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false" aria-controls="mobileServices">Servicios <span class="nav-chevron" aria-hidden="true"></span></button>
+                <div class="mobile-service-links" id="mobileServices" hidden>
+                <a href="../next/next.html" class="m-link">Next</a>
+                <a href="../private/private.html" class="m-link">Private & Institutional</a>
+                <a href="../corporate/corporate.html" class="m-link">Corporate</a>
+                <a href="../tech/tech.html" class="m-link">Tech & Global</a>
+                </div>
+            </div>
+            <a href="../bricka/bricka.html" class="m-link highlight" aria-current="page">BRICKA</a>
+        </div>
+        <div class="mobile-footer">
+            <div class="socials mobile-socials">
+                <a href="https://www.linkedin.com/company/aitcap-finance-lab" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/aitcap.fin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero bricka-hero" aria-labelledby="bricka-title">
+            <div class="hero-bg" id="heroBg">
+                <video class="bricka-hero-video" preload="auto" muted loop playsinline aria-hidden="true" tabindex="-1">
+                    <source src="../assets/bricka-background.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="container bricka-hero-grid">
+                <div class="hero-content">
+                    <span class="badge bricka-badge reveal">BRICKA</span>
+                    <h1 id="bricka-title" class="hero-title reveal">Financiamos tu <span class="bricka-gradient">primera vivienda</span></h1>
+                    <p class="hero-text reveal">BRICKA acerca una alternativa de financiamiento a medida a personas y familias que sueñan con su primera vivienda.</p>
+                    <div class="hero-actions reveal">
+                        <a href="#por-que" class="btn btn-primary">Conocer BRICKA</a>
+                        <a href="#contacto" class="btn btn-outline">Hablemos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator"><span>Deslizar</span><div class="line"></div></div>
+        </section>
+
+        <section id="por-que" class="bricka-section bricka-origin" aria-labelledby="origin-title">
+            <div class="container center-text-block" data-scroll>
+                <span class="section-kicker">01 / BRICKA</span>
+                <h2 id="origin-title">Una mirada distinta sobre el acceso a la vivienda</h2>
+                <div class="bricka-divider"></div>
+                <div class="bricka-origin-text">
+                    <p>Tener ingresos y capacidad de pago no siempre alcanza para acceder al financiamiento tradicional. Cada realidad merece ser considerada.</p>
+                    <p>Con experiencia en finanzas y operaciones inmobiliarias, creamos BRICKA para acercarte a tu primer hogar.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="destinatarios" class="bricka-section bricka-audiences" aria-labelledby="audiences-title">
+            <div class="container">
+                <div class="bricka-audience-heading center-text-block" data-scroll>
+                    <span class="section-kicker">02 / DESTINATARIOS</span>
+                    <h2 id="audiences-title">¿Para quién es BRICKA?</h2>
+                    <div class="bricka-divider"></div>
+                    <p class="bricka-audience-intro">BRICKA está dirigido a personas y familias que buscan adquirir su primera vivienda y necesitan una alternativa de financiamiento que contemple su situación.</p>
+                </div>
+                <div class="bricka-profile-grid">
+                    <article class="bricka-profile-card" data-scroll>
+                        <div class="card-side-line" aria-hidden="true"></div>
+                        <h3>Capacidad de pago y aporte propio</h3>
+                        <p>Está orientado a quienes cuentan con capacidad de pago demostrable y un aporte propio.</p>
+                    </article>
+                    <article class="bricka-profile-card bricka-profile-card-violet" data-scroll>
+                        <div class="card-side-line" aria-hidden="true"></div>
+                        <h3>Alcance inicial</h3>
+                        <p>En esta etapa, la propuesta se concentra en Rosario y alrededores y en viviendas terminadas y escriturables.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="bricka-section bricka-process" aria-labelledby="process-title">
+            <div class="container method-grid">
+                <div class="method-sticky-col">
+                    <div class="method-header">
+                        <span class="section-kicker">03 / PROCESO</span>
+                        <h2 id="process-title">Cómo funciona BRICKA</h2>
+                        <p class="method-intro">Analizamos cada perfil y diseñamos una estructura de financiamiento y un flujo de pagos a medida, según la capacidad del adquirente y los objetivos del aportante.</p>
+                    </div>
+                    <nav class="method-nav" aria-label="Pasos de BRICKA">
+                        <a class="nav-step active" href="#bricka-step-1" aria-current="step"><span class="step-num">01</span> Análisis del caso</a>
+                        <a class="nav-step" href="#bricka-step-2"><span class="step-num">02</span> Formalización de la operación</a>
+                        <a class="nav-step" href="#bricka-step-3"><span class="step-num">03</span> Uso y transferencia de la vivienda</a>
+                    </nav>
+                </div>
+                <div class="method-scroll-col">
+                    <article class="method-block active" id="bricka-step-1">
+                        <div class="block-content">
+                            <span class="mobile-step-number" aria-hidden="true">01</span>
+                            <h3>1. Análisis del caso</h3>
+                            <p>Analizamos el perfil y la capacidad de pago del interesado, junto con las características de la vivienda. Solo consideramos viviendas terminadas y escriturables.</p>
+                        </div>
+                    </article>
+                    <article class="method-block" id="bricka-step-2">
+                        <div class="block-content">
+                            <span class="mobile-step-number" aria-hidden="true">02</span>
+                            <h3>2. Formalización de la operación</h3>
+                            <p>Cada operación se formaliza mediante un fideicomiso de garantía, una estructura legal definida para ese caso, con intervención de profesionales especializados.</p>
+                        </div>
+                    </article>
+                    <article class="method-block" id="bricka-step-3">
+                        <div class="block-content">
+                            <span class="mobile-step-number" aria-hidden="true">03</span>
+                            <h3>3. Uso y transferencia de la vivienda</h3>
+                            <p>El adquirente habita la vivienda según las condiciones pactadas. Una vez canceladas las obligaciones y formalizada la transferencia, la titularidad queda a su nombre.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="cta-section bricka-contact" aria-label="Contacto">
+            <div class="container">
+                <div class="cta-grid">
+                    <article class="cta-card" data-scroll>
+                        <span class="section-kicker">Para quienes buscan su primera vivienda</span>
+                        <h2>Hablemos de tu primera vivienda</h2>
+                        <p>Contanos qué estás buscando. Evaluaremos tu situación y si BRICKA puede ser una alternativa para vos.</p>
+                        <div class="cta-buttons"><a class="btn btn-white" href="https://wa.me/5493415976238?text=Hola%2C%20quiero%20consultar%20por%20mi%20primera%20vivienda%20con%20BRICKA" target="_blank" rel="noopener noreferrer">Consultar por mi vivienda</a></div>
+                    </article>
+                    <article class="cta-card cta-corporate" data-scroll>
+                        <span class="section-kicker">Para quienes quieren aportar capital</span>
+                        <h2>Tu capital puede acercar a una familia a su hogar</h2>
+                        <p>Cada operación tiene estructuración fiduciaria y condiciones propias, buscando un retorno financiero y acompañando a una familia a cumplir su sueño.</p>
+                        <div class="cta-buttons"><a class="btn btn-outline-white" href="https://wa.me/5493415976238?text=Hola%2C%20quiero%20conocer%20c%C3%B3mo%20participar%20como%20inversor%20en%20BRICKA" target="_blank" rel="noopener noreferrer">Quiero conocer cómo participar</a></div>
+                    </article>
+                </div>
+                <p class="bricka-disclaimer">Cada operación está sujeta a evaluación, disponibilidad de financiamiento y aceptación de sus condiciones. AITCAP brinda servicios de asesoramiento y estructuración. Las inversiones implican riesgos y pueden generar pérdidas de capital. El envío de una consulta no implica aprobación de crédito ni suscripción de una inversión.</p>
+            </div>
+        </section>
+
+        <a href="https://wa.me/5493415976238?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20BRICKA" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.506-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.084 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+        </a>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo-container footer-logo">
+                        <img src="../assets/isotipo.png" alt="AITCAP Icon" class="logo-iso">
+                        <img src="../assets/logotipo-text.png" alt="AITCAP" class="logo-text">
+                    </a>
+                    <p>Finance Lab.</p>
+                    <p class="copyright-text">&copy; 2026 AITCAP. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Ecosistema</h4>
+                    <ul>
+                        <li><a href="../next/next.html">Next</a></li>
+                        <li><a href="../private/private.html">Private & Institutional</a></li>
+                        <li><a href="../corporate/corporate.html">Corporate</a></li>
+                        <li><a href="../tech/tech.html">Tech & Global</a></li>
+                        <li><a href="bricka.html">Bricka</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <a href="https://maps.app.goo.gl/H9JbWBtbc5Zq7CkE7" target="_blank">Corrientes 631, S2000</a>
+                    <p>Rosario, Santa Fe.</p>
+                    <a href="tel:+543415976238">+54 9 341 597 6238</a> <br>
+                    <a href="mailto:info@aitcap.com.ar">info@aitcap.com.ar</a>
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/company/aitcap-finance-lab" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/aitcap.fin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-regulators">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.argentina.gob.ar/cnv" class="regulator-logo" style="width: 6.5rem;">
+                    <img src="../assets/partner-1.png" alt="Comisión Nacional de Valores" loading="lazy">
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.byma.com.ar" class="regulator-logo" style="width: 6.5rem;">
+                    <img src="../assets/partner-2.png" alt="BYMA" loading="lazy">
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://a3mercados.com.ar/" class="regulator-logo" style="width: 6.5rem;">
+                    <img src="../assets/partner-4.png" alt="A3 Mercados" loading="lazy">
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://mav-sa.com.ar/" class="regulator-logo" style="width: 6.5rem;">
+                    <img src="../assets/partner-5.png" alt="Mercado Argentino de Valores S.A." loading="lazy">
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.balanz.com/abrir-cuenta-2.aspx?reference=aramisturlione@gmail.com" class="regulator-logo" style="width: 6.5rem;">
+                    <img src="../assets/partner-3.png" alt="Balanz" loading="lazy">
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://lbo.com.ar" class="regulator-logo" style="width: 6.5rem;">
+                    <img src="../assets/partner-6.png" alt="LBO" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../global.js" defer></script>
+    <script src="bricka.js" defer></script>
+</body>
+</html>

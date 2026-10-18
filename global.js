@@ -17,28 +17,52 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===============================================
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    const mobileLinks = document.querySelectorAll('.m-link');
+    const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+    const mobileServices = document.getElementById('mobileServices');
+    const desktopServicesToggle = document.getElementById('desktopServicesToggle');
+    const desktopDropdown = desktopServicesToggle?.closest('.nav-dropdown');
 
-    if (menuToggle && mobileMenu) {
-        function toggleMenu() {
-            const isOpen = mobileMenu.classList.contains('open');
-            if (isOpen) {
-                mobileMenu.classList.remove('open');
-                menuToggle.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            } else {
-                mobileMenu.classList.add('open');
-                menuToggle.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
+    function setMobileMenu(open) {
+        if (!menuToggle || !mobileMenu) return;
+        mobileMenu.classList.toggle('open', open);
+        menuToggle.classList.toggle('active', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (!open && mobileServicesToggle && mobileServices) {
+            mobileServices.hidden = true;
+            mobileServicesToggle.setAttribute('aria-expanded', 'false');
         }
-
-        menuToggle.addEventListener('click', toggleMenu);
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
     }
+
+    menuToggle?.addEventListener('click', () => setMobileMenu(!mobileMenu.classList.contains('open')));
+    mobileMenu?.querySelectorAll('a.m-link').forEach(link => link.addEventListener('click', () => setMobileMenu(false)));
+    mobileServicesToggle?.addEventListener('click', () => {
+        const open = mobileServices.hidden;
+        mobileServices.hidden = !open;
+        mobileServicesToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    function closeDesktopServices() {
+        desktopDropdown?.classList.remove('open');
+        desktopServicesToggle?.setAttribute('aria-expanded', 'false');
+    }
+    desktopServicesToggle?.addEventListener('click', () => {
+        const open = !desktopDropdown.classList.contains('open');
+        desktopDropdown.classList.toggle('open', open);
+        desktopServicesToggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', event => {
+        if (desktopDropdown && !desktopDropdown.contains(event.target)) closeDesktopServices();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeDesktopServices();
+            setMobileMenu(false);
+        }
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) setMobileMenu(false);
+    });
 
     // ===============================================
     // 2. GLOBAL: ANIMACIONES SCROLL GENÉRICAS
